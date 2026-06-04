@@ -1,0 +1,245 @@
+# =============================================================================
+# BCFC — Bilibili Community Friendliness Crawler 配置文件
+# =============================================================================
+
+# --- B站认证 ---
+bilibili:
+  sessdata: "${BILIBILI_SESSDATA}"
+  bili_jct: "${BILIBILI_BILI_JCT}"
+  buvid3: "${BILIBILI_BUVID3}"
+  # B站用户UID，用于部分需要登录的接口
+  dedeuserid: "${BILIBILI_DEDEUSERID}"
+  # WBI密钥刷新间隔（秒），通常1-2小时自动刷新
+  wbi_refresh_interval: 3600
+
+# --- 爬取设置 ---
+crawler:
+  # 请求间隔（秒），避免触发反爬
+  request_delay: 0.5
+  # 最大重试次数
+  max_retries: 3
+  # 重试退避基数（秒）：5, 15, 45...
+  retry_backoff_base: 5
+  # 每个关键词最多搜索页数（20条/页）
+  search_pages_per_keyword: 50
+  # 每个视频最多获取的评论数
+  max_comments_per_video: 5000
+  # 每个视频最多获取的弹幕数
+  max_danmaku_per_video: 10000
+  # 时间范围
+  date_range:
+    start: "2018-01-01"
+    end: "2026-12-31"
+  # HTTP代理（可选），如 "socks5://127.0.0.1:1080" 或 "http://127.0.0.1:7890"
+  proxy: null
+  # 是否爬取历史弹幕（需要登录）
+  fetch_historical_danmaku: true
+
+# --- 游戏和关键词 ---
+games:
+  - name: "原神"
+    name_en: "Genshin Impact"
+    release_date: "2020-09-28"
+    keywords:
+      - "原神"
+      - "genshin"
+      - "原神攻略"
+      - "原神剧情"
+      - "原神抽卡"
+      - "原神评测"
+      - "原神角色"
+      - "原神二创"
+
+  - name: "鸣潮"
+    name_en: "Wuthering Waves"
+    release_date: "2024-05-23"
+    keywords:
+      - "鸣潮"
+      - "wuthering waves"
+      - "鸣潮攻略"
+      - "鸣潮评测"
+      - "鸣潮剧情"
+      - "鸣潮抽卡"
+
+  - name: "明日方舟"
+    name_en: "Arknights"
+    release_date: "2019-05-01"
+    keywords:
+      - "明日方舟"
+      - "arknights"
+      - "明日方舟攻略"
+      - "明日方舟评测"
+      - "明日方舟剧情"
+      - "明日方舟抽卡"
+
+  - name: "终末地"
+    name_en: "Arknights: Endfield"
+    release_date: "2025-01-01"
+    keywords:
+      - "终末地"
+      - "明日方舟终末地"
+      - "终末地攻略"
+      - "终末地评测"
+      - "终末地测试"
+
+  - name: "异环"
+    name_en: "Project: Yihuan"
+    release_date: "2025-01-01"
+    keywords:
+      - "异环"
+      - "异环攻略"
+      - "异环评测"
+      - "异环测试"
+      - "异环二创"
+
+  - name: "崩坏3"
+    name_en: "Honkai Impact 3rd"
+    release_date: "2016-10-14"
+    keywords:
+      - "崩坏3"
+      - "崩坏3rd"
+      - "honkai impact"
+      - "崩坏3攻略"
+      - "崩坏3剧情"
+      - "崩坏3评测"
+
+  - name: "崩坏：星穹铁道"
+    name_en: "Honkai: Star Rail"
+    release_date: "2023-04-26"
+    keywords:
+      - "星穹铁道"
+      - "崩坏星穹铁道"
+      - "honkai star rail"
+      - "星铁"
+      - "星穹铁道攻略"
+      - "星穹铁道评测"
+      - "星穹铁道剧情"
+      - "星穹铁道抽卡"
+
+  - name: "绝区零"
+    name_en: "Zenless Zone Zero"
+    release_date: "2024-07-04"
+    keywords:
+      - "绝区零"
+      - "zenless zone zero"
+      - "绝区零攻略"
+      - "绝区零评测"
+      - "绝区零抽卡"
+      - "绝区零剧情"
+
+  - name: "幻塔"
+    name_en: "Tower of Fantasy"
+    release_date: "2021-12-16"
+    keywords:
+      - "幻塔"
+      - "tower of fantasy"
+      - "幻塔攻略"
+      - "幻塔评测"
+      - "幻塔剧情"
+
+  - name: "碧蓝航线"
+    name_en: "Azur Lane"
+    release_date: "2017-05-25"
+    keywords:
+      - "碧蓝航线"
+      - "azur lane"
+      - "碧蓝航线攻略"
+      - "碧蓝航线评测"
+
+  - name: "少女前线"
+    name_en: "Girls' Frontline"
+    release_date: "2016-05-20"
+    keywords:
+      - "少女前线"
+      - "少前"
+      - "girls frontline"
+      - "少女前线攻略"
+
+  - name: "重返未来：1999"
+    name_en: "Reverse: 1999"
+    release_date: "2023-10-26"
+    keywords:
+      - "重返未来1999"
+      - "reverse 1999"
+      - "1999攻略"
+      - "1999评测"
+      - "1999剧情"
+
+  - name: "蔚蓝档案"
+    name_en: "Blue Archive"
+    release_date: "2021-02-04"
+    keywords:
+      - "蔚蓝档案"
+      - "blue archive"
+      - "蔚蓝档案攻略"
+      - "蔚蓝档案评测"
+
+  - name: "FGO"
+    name_en: "Fate/Grand Order"
+    release_date: "2015-07-30"
+    keywords:
+      - "FGO"
+      - "fate grand order"
+      - "FGO攻略"
+      - "FGO评测"
+      - "FGO抽卡"
+      - "命运冠位指定"
+
+  - name: "阴阳师"
+    name_en: "Onmyoji"
+    release_date: "2016-09-09"
+    keywords:
+      - "阴阳师"
+      - "onmyoji"
+      - "阴阳师攻略"
+      - "阴阳师评测"
+      - "阴阳师抽卡"
+
+# --- LLM 分析设置 ---
+llm:
+  # API地址 (OpenAI兼容接口: DeepSeek, Qwen, OpenAI等)
+  api_base: "https://api.deepseek.com/v1"
+  api_key: "${DEEPSEEK_API_KEY}"
+  model: "deepseek-chat"
+  # 每次LLM调用处理的文本数
+  batch_size: 50
+  # 最大并发API调用数
+  max_concurrent: 5
+  # 温度参数 (低温度保证评分一致性)
+  temperature: 0.1
+  max_tokens: 200
+  # 启用结果缓存 (按内容MD5)
+  cache_enabled: true
+  # 启用规则预过滤 (高频弹幕模式不需要LLM)
+  rule_prefilter: true
+
+# --- CFI 评分权重 ---
+scoring:
+  weights:
+    toxicity_inverse: 0.25
+    friendliness: 0.25
+    constructiveness: 0.15
+    sentiment_centered: 0.15
+    controversy_penalty: 0.10
+    quality_bonus: 0.05
+    nontoxic_bonus: 0.05
+  # 公式版本号，变更权重时递增
+  version: "1.0"
+  # 高毒性阈值
+  toxicity_threshold: 70
+  # 高质量阈值
+  constructiveness_threshold: 70
+  # 正面情感阈值
+  sentiment_threshold: 60
+
+# --- 数据库 ---
+database:
+  path: "data/bcfc.db"
+  wal_mode: true
+
+# --- 日志 ---
+logging:
+  level: "INFO"
+  file: "logs/bcfc.log"
+  # 日志格式
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
